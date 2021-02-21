@@ -15,6 +15,6 @@ pip install -r requirements.txt
 ```
   python .\manage.py runserver
 ```
-# opening the project
+# Opening the project
 
   Go to http://127.0.0.1:8000/ to open the application.
