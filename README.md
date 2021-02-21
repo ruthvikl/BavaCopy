@@ -9,3 +9,7 @@ git clone https://github.com/ruthvikl/BavaCopy.git
 cd Music-Controller-App
 
 pip install -r requirements.txt
+
+# Start the web server
+
+  python .\manage.py runserver
