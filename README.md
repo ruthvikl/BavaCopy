@@ -6,7 +6,7 @@ You can obtain it in zip format in this link : https://www.bseindia.com/markets/
 ## Get the source code and install the required modules
 git clone https://github.com/ruthvikl/BavaCopy.git
 
-cd Music-Controller-App
+cd Zerodha
 
 pip install -r requirements.txt
 
