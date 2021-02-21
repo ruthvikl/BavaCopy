@@ -1,32 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div id ="content" class="content" style="padding-top: 60px;">
-        <table id="myTable">
-            <thead> 
-                <tr> 
-                    <th>SC_CODE</th> 
-                    <th>SC_NAME</th> 
-                    <th>OPEN</th> 
-                    <th>HIGH</th> 
-                    <th>LOW</th> 
-                    <th>CLOSE</th>
-                </tr> 
-            </thead>
-            <tbody> 
-                {% for i in user%}
-                <tr> 
-                    <td>{{i.SC_CODE}}</td> 
-                    <td>{{i.SC_NAME}}</td> 
-                    <td>{{i.OPEN}}</td> 
-                    <td>{{i.HIGH}}</td> 
-                    <td>{{i.LOW}}</td> 
-                    <td>{{i.CLOSE}}</td> 
-                </tr> 
-                {% endfor %} 
-            </tbody>
-        </table>
-    </div>
-    <a href="{% url 'writetocsv' %}" id="downloadlink">download</a>
+    <!-- <div id ="content" class="content" style="padding-top: 60px;"> -->
+        <div class="table-container" >
+            <table id="myTable" class="table  is-striped is-hoverable " style="color:#52057b;">
+                <thead class="content"style="background-color: #3273dc;color: #0a0a0a;"> 
+                    <tr> 
+                        <th>SC_CODE</th> 
+                        <th>SC_NAME</th> 
+                        <th>OPEN</th> 
+                        <th>HIGH</th> 
+                        <th>LOW</th> 
+                        <th>CLOSE</th>
+                    </tr> 
+                </thead>
+                <tbody> 
+                    {% for i in user%}
+                    <tr> 
+                        <td>{{i.SC_CODE}}</td> 
+                        <td>{{i.SC_NAME}}</td> 
+                        <td>{{i.OPEN}}</td> 
+                        <td>{{i.HIGH}}</td> 
+                        <td>{{i.LOW}}</td> 
+                        <td>{{i.CLOSE}}</td> 
+                    </tr> 
+                    {% endfor %} 
+                </tbody>
+            </table>
+        </div>
+    <!-- </div> -->
+    
 
     <script>
         function myFunction() {
@@ -47,7 +49,6 @@
                 }    
             }   
         }
-
        const vm = new Vue({
         el: "#content",
         data: {
