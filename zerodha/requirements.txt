@@ -3,3 +3,7 @@ bs4
 BeautifulSoup4
 pandas
 requests
+urllib
+io
+zipfile
+pytz
