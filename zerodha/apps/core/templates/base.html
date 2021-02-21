@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div>
+            <!-- <nav class="navbar header navbar-dark bg-info  navbar-expand"><a href="#" target="_self" class="navbar-brand"></a> -->
+        <nav class="navbar is-dark fixed-top" id="navbarapp" style="position: fixed;width: -webkit-fill-available;">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="{% url 'tablepage' %}">BHAV COPY</a>
+                <div class="navbar-start">
+                    <div class="navbar-item">
+                        <form method="get" action="">
+                            <div class="field has-addons">
+                                <div class="control">
+                                    <input type="text" class="input" id="myInput" onkeyup="myFunction()" placeholder="Search..." name="query">
+                                </div>
+                                <div class="control">
+                                    <button class="button is-success">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

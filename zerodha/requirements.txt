@@ -1,0 +1,5 @@
+django
+bs4
+BeautifulSoup4
+pandas
+requests

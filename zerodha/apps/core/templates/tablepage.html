@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div id ="content" class="content" style="padding-top: 60px;">
+        <table id="myTable">
+            <thead> 
+                <tr> 
+                    <th>SC_CODE</th> 
+                    <th>SC_NAME</th> 
+                    <th>OPEN</th> 
+                    <th>HIGH</th> 
+                    <th>LOW</th> 
+                    <th>CLOSE</th>
+                </tr> 
+            </thead>
+            <tbody> 
+                {% for i in user%}
+                <tr> 
+                    <td>{{i.SC_CODE}}</td> 
+                    <td>{{i.SC_NAME}}</td> 
+                    <td>{{i.OPEN}}</td> 
+                    <td>{{i.HIGH}}</td> 
+                    <td>{{i.LOW}}</td> 
+                    <td>{{i.CLOSE}}</td> 
+                </tr> 
+                {% endfor %} 
+            </tbody>
+        </table>
+    </div>
+    <a href="{% url 'writetocsv' %}" id="downloadlink">download</a>
+
+    <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }    
+            }   
+        }
+
+       const vm = new Vue({
+        el: "#content",
+        data: {
+                user:[],
+            },
+            computed: {
+                csvData() {
+                return this.user.map(users=> ({
+                    user,
+                }));
+                }
+            },
+            methods: {
+                csvExport(arrData) {
+                let csvContent = "data:text/csv;charset=utf-8,";
+                csvContent += [
+                    Object.keys(arrData[0]).join(";"),
+                    arrData.map(item => Object.values(item).join(";"))
+                ]
+                    .join("\n")
+                    .replace(/(^\[)|(\]$)/gm, "");
+
+                const data = encodeURI(csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", data);
+                link.setAttribute("download", "export.csv");
+                link.click();
+                }
+            },
+            mounted() {
+                fetch(" ")
+                .then(resp => resp.json())
+                .then(json => (this.user = json));
+            }
+        });
+    </script>
+{% endblock %}
