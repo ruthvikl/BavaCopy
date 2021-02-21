@@ -3,3 +3,4 @@ This is a django project that displays bhavcopy in  a table. This projct makes u
 You can obtain it in zip format in this link : https://www.bseindia.com/markets/MarketInfo/BhavCopy.aspx
 
 # Setup
+## Get the source code and install the required modules
