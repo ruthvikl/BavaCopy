@@ -18,8 +18,7 @@ import os
 # Create your views here.
 
 def tablepage(request):
-    tz = pytz.timezone('Asia/Kolkata')
-    dt = datetime.now(tz)
+    dt = datetime.now()
     dayofweek = datetime.today().strftime("%A")
     now = dt.strftime("%H")  # geting time of the day 
     today = date.today()
